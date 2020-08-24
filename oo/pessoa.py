@@ -1,5 +1,5 @@
 class Pessoa:
-    # atribudo defaul ou atributo de classe
+    # atribudo default ou atributo de classe
     olhos = 2
 
     # metodo construtor da classe
@@ -8,9 +8,13 @@ class Pessoa:
         self.nome = nome
         self.filhos = list(filhos)
 
-    # metodo de classe
+    # metodo
     def cumprimentar(self):
         return f'Ola mundo!!!{id(self)}'
+
+    # metodo de classe()
+    @staticmethod# <-- decoreitor
+    def
 
 # metodo main ->> qdo importar esse pagina apenas execultara od metodos.
 if __name__ == '__main__':
