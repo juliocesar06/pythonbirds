@@ -45,7 +45,7 @@
 >>> direcao.girar_esq()
 >>> direcao.valor
 'Norte'
->>> carro = Carro(Direcao,Motor)
+>>> carro = Carro(direcao,motor)
 >>> carro.calcular_velocidade()
 0
 >>> carro.acelerar()
@@ -65,10 +65,7 @@
 0
 
 """
-
-
 class Motor:
-
     def __init__(self):
         self.velocidade = 0
 
@@ -76,62 +73,25 @@ class Motor:
         self.velocidade += 1
 
     def frear(self):
-        if self.velocidade <= 1:
-            self.velocidade = 0
-        else:
-            self.velocidade -= 2
-
+        self.velocidade -= 2
+        self.velocidade = max(0,self.velocidade)
+NORTE ='Norte'
+SUL = 'Sul'
+LESTE = 'Leste'
+OESTE = 'Oeste'
 
 class Direcao:
 
+    rotacao_direita_dic = {NORTE:LESTE ,LESTE:SUL ,SUL:OESTE ,OESTE:NORTE}
+    rotacao_esquerda_dic = {NORTE:OESTE ,OESTE:SUL ,SUL:LESTE ,LESTE:NORTE}
+
     def __init__(self):
-        self.mov = ['Norte', 'Leste', 'Sul', 'Oeste']
-        self.valor = self.mov[0]
+        self.valor = NORTE
 
     def girar_dir(self):
-        if self.valor == self.mov[0]:
-            self.valor = self.mov[1]
-        elif self.valor == self.mov[1]:
-            self.valor = self.mov[2]
-        elif self.valor == self.mov[2]:
-            self.valor = self.mov[3]
-        else:
-            self.valor = self.mov[0]
-
+      self.rotacao_direita_dic[self.valor]
     def girar_esq(self):
-        if self.valor == self.mov[3]:
-            self.valor = self.mov[2]
-        elif self.valor == self.mov[2]:
-            self.valor = self.mov[1]
-        elif self.valor == self.mov[1]:
-            self.valor = self.mov[0]
-        else:
-            self.valor = self.mov[3]
-
-
-class Carro:
-    velocidade = 0
-    def __init__(self,direcao,motor):
-        self.direcao = direcao
-        self.motor = motor
+       self.rotacao_esquerda_dic[self.valor]
 
 
 
-
-    def calcular_velocidade(self):
-        return self.velocidade
-
-    def acelerar(self):
-        self.velocidade += 1
-
-    def frear(self):
-        if self.velocidade <= 1:
-            self.velocidade = 0
-        else:
-            self.velocidade -= 2
-
-
-
-carro = Carro('Norte',0)
-carro.acelerar()
-carro.frear()

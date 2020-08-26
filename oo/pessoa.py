@@ -13,8 +13,8 @@ class Pessoa:
         return f'Ola mundo!!!{id(self)}'
 
     # metodo de classe()
-    @staticmethod# <-- decoreitor
-    def
+
+
 
 # metodo main ->> qdo importar esse pagina apenas execultara od metodos.
 if __name__ == '__main__':
