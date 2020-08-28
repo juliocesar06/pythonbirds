@@ -3,32 +3,33 @@ class Pessoa:
     olhos = 2
 
     # metodo construtor da classe
-    def __init__(self,nome, *filhos ,idade=28):# atributos de classe
+    def __init__(self,nome, filhos ,idade=28):# atributos de classe
         self.idade = idade
         self.nome = nome
         self.filhos = list(filhos)
 
     # metodo
     def cumprimentar(self):
-        return f'Ola mundo!!!{id(self)}'
+
+        return f'Ola mundo!!!, sou o {self.nome}'
 
     # metodo de classe()
 
 class Homen(Pessoa):
-    pass
+
+    def cumprimentar(self):
+        cumprimentar_da_classe = super().cumprimentar()
+        return f'{ cumprimentar_da_classe } Bora virar um genio na programaçao'
 
 # metodo main ->> qdo importar esse pagina apenas execultara od metodos.
 if __name__ == '__main__':
 
     # instanciando as pessoas
-    renzo = Homen(nome='Renzo')
-    julio = Homen(renzo,nome='Julio')
+    renzo = Homen(nome='Renzo',filhos='Tdeu')
+    julio = Homen(nome='Julio',filhos='renzo')
 
     print(julio.filhos)
 
-    for filho in julio.filhos:
-        print(filho.nome)
-        print(id(filho))
 
     # atribuinado dinamicamente um atributo no objeto julio(apenas nesse objeto)
     julio.sobrenome = 'Cesar'
@@ -63,5 +64,3 @@ if __name__ == '__main__':
 
     print(julio.cumprimentar())
 
-   pessoa = Pessoa('king'
-   print(isinstance(pessoa ,Pessoa))
