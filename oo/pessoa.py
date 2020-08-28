@@ -3,7 +3,7 @@ class Pessoa:
     olhos = 2
 
     # metodo construtor da classe
-    def __init__(self,*filhos, nome, idade=28):# atributos de classe
+    def __init__(self,nome, *filhos ,idade=28):# atributos de classe
         self.idade = idade
         self.nome = nome
         self.filhos = list(filhos)
@@ -14,14 +14,15 @@ class Pessoa:
 
     # metodo de classe()
 
-
+class Homen(Pessoa):
+    pass
 
 # metodo main ->> qdo importar esse pagina apenas execultara od metodos.
 if __name__ == '__main__':
 
     # instanciando as pessoas
-    renzo = Pessoa(nome='Renzo')
-    julio = Pessoa(renzo,nome='Julio')
+    renzo = Homen(nome='Renzo')
+    julio = Homen(renzo,nome='Julio')
 
     print(julio.filhos)
 
@@ -59,3 +60,8 @@ if __name__ == '__main__':
 
     # ID da classe e do objeto e o mesmo idenpedente de onde ele e acessado
     print(id(Pessoa.olhos),id(julio.olhos),id(renzo.olhos)) # id de renzo mudou pq foi "instaciado dinamicamente"
+
+    print(julio.cumprimentar())
+
+   pessoa = Pessoa('king'
+   print(isinstance(pessoa ,Pessoa))
